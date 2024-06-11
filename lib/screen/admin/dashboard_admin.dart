@@ -1,3 +1,5 @@
+import 'package:bopat/screen/admin/allmenu.dart';
+import 'package:bopat/screen/admin/keranjang.dart';
 import 'package:flutter/material.dart';
 import 'package:bopat/config/asset.dart';
 import 'package:bopat/screen/admin/home_screen.dart';
@@ -14,6 +16,8 @@ class _DashboardAdminState extends State<DashboardAdmin> {
   String _title = '';
   List<Widget> _widgetOptions = <Widget>[
     HomeScreen(),
+    Allmenu(),
+    Keranjang(),
   ];
 
   @override
@@ -29,7 +33,7 @@ class _DashboardAdminState extends State<DashboardAdmin> {
         child: AppBar(
           elevation: 2,
           toolbarHeight: 60,
-          backgroundColor: Colors.white,
+          backgroundColor: Colors.brown,
           centerTitle: true,
           title: _title == 'default'
               ? Container(
@@ -51,31 +55,22 @@ class _DashboardAdminState extends State<DashboardAdmin> {
                                   style: TextStyle(
                                     fontSize: 20,
                                     fontWeight: FontWeight.bold,
-                                    color: Asset.colorPrimary,
+                                    color: Colors.white,
                                   ),
                                 ),
                               ],
-                            ),
-                            Text(
-                              'Nama',
-                              maxLines: 1,
-                              style: TextStyle(
-                                fontSize: 12,
-                                // fontWeight: FontWeight.bold,
-                                color: Asset.colorPrimaryDark,
-                              ),
                             ),
                           ],
                         ),
                       ),
                       CircleAvatar(
                         radius: 30,
-                        backgroundColor: Asset.colorAccent,
+                        backgroundColor: Colors.brown,
                         child: CircleAvatar(
                           radius: 27,
                           backgroundImage:
                               AssetImage('../asset/images/ikon.png'),
-                          backgroundColor: Asset.colorPrimaryDark,
+                          backgroundColor: Colors.brown,
                         ),
                       ),
                     ],
@@ -87,7 +82,7 @@ class _DashboardAdminState extends State<DashboardAdmin> {
                   style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
-                    color: Color(0xff020202),
+                    color: Colors.white,
                   ),
                 ),
         ),
@@ -103,20 +98,20 @@ class _DashboardAdminState extends State<DashboardAdmin> {
           currentIndex: _selectedIndex,
           showSelectedLabels: true,
           showUnselectedLabels: true,
-          unselectedItemColor: Color.fromARGB(255, 2229, 124, 35),
-          selectedItemColor: Asset.colorPrimary,
+          unselectedItemColor: Colors.brown,
+          selectedItemColor: Colors.brown,
           items: [
             BottomNavigationBarItem(
               label: "Beranda",
               icon: Icon(Icons.home_filled),
             ),
             BottomNavigationBarItem(
-              label: "Menu",
+              label: "Semua Menu",
               icon: Icon(Icons.food_bank_outlined),
             ),
             BottomNavigationBarItem(
-              label: "Profil",
-              icon: Icon(Icons.person_2),
+              label: "Keranjang",
+              icon: Icon(Icons.shopping_cart),
             ),
             // BottomNavigationBarItem(
             //   label: "navbar 3",
@@ -135,17 +130,17 @@ class _DashboardAdminState extends State<DashboardAdmin> {
       switch (index) {
         case 0:
           {
-            _title = 'default';
+            _title = 'Beranda';
           }
           break;
         case 1:
           {
-            _title = 'navbar 1';
+            _title = 'Semua Menu';
           }
           break;
         case 2:
           {
-            _title = 'navbar 2';
+            _title = 'Keranjang';
           }
           break;
         case 3:

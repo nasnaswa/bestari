@@ -1,3 +1,5 @@
+import 'package:bopat/screen/admin/makanan.dart';
+import 'package:bopat/screen/admin/minuman.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:bopat/config/asset.dart';
@@ -20,7 +22,7 @@ class _HomeScreenState extends State<HomeScreen> {
           Container(
             width: MediaQuery.of(context).size.width,
             decoration: BoxDecoration(
-              color: Asset.colorPrimary,
+              color: Colors.brown,
               borderRadius: BorderRadius.all(
                 Radius.circular(10),
               ),
@@ -36,7 +38,7 @@ class _HomeScreenState extends State<HomeScreen> {
             child: Text(
               "Kategori",
               style: TextStyle(
-                color: Asset.colorPrimaryDark,
+                color: Colors.brown,
                 fontWeight: FontWeight.bold,
                 fontSize: 18,
               ),
@@ -48,12 +50,15 @@ class _HomeScreenState extends State<HomeScreen> {
             child: Column(
               children: [
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     IconButton('Makanan', Icons.fastfood, 0),
-                    IconButton('Snack', Icons.cookie_outlined, 0),
-                    IconButton('Coffee', Icons.coffee_sharp, 0),
-                    IconButton('Non Coffee', Icons.wine_bar, 0),
+                    // IconButton('Snack', Icons.cookie_outlined, 0),
+                    SizedBox(
+                      width: 30,
+                    ),
+                    IconButton('Minuman', Icons.coffee_sharp, 1),
+                    // IconButton('Non Coffee', Icons.wine_bar, 0),
                   ],
                 ),
                 SizedBox(
@@ -67,9 +72,51 @@ class _HomeScreenState extends State<HomeScreen> {
               top: 10,
             ),
             child: Text(
+              "Best Seller",
+              style: TextStyle(
+                color: Colors.brown,
+                fontWeight: FontWeight.bold,
+                fontSize: 18,
+              ),
+            ),
+            alignment: Alignment.topLeft,
+          ),
+          GridView.builder(
+            shrinkWrap: true,
+            physics: NeverScrollableScrollPhysics(),
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+              mainAxisSpacing: 8.0,
+              crossAxisSpacing: 8.0,
+              childAspectRatio:
+                  1.7, // Sesuaikan dengan proporsi yang Anda inginkan
+            ),
+            itemCount: 6,
+            itemBuilder: (BuildContext context, int index) {
+              return Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(8),
+                  color: Colors.grey[300],
+                ),
+                child: Image(
+                  image: AssetImage(
+                      '../asset/images/menu${index + 1}.jpg'), // Misalnya, image1.jpg, image2.jpg, dst.
+                  fit: BoxFit.cover,
+                ),
+              );
+            },
+          ),
+          SizedBox(
+            height: 15,
+          ),
+          Container(
+            margin: EdgeInsets.only(
+              top: 10,
+            ),
+            child: Text(
               "Event",
               style: TextStyle(
-                color: Asset.colorPrimaryDark,
+                color: Colors.brown,
                 fontWeight: FontWeight.bold,
                 fontSize: 18,
               ),
@@ -106,45 +153,6 @@ class _HomeScreenState extends State<HomeScreen> {
                 )
               ],
             ),
-          ),
-          Container(
-            margin: EdgeInsets.only(
-              top: 10,
-            ),
-            child: Text(
-              "Best Seller",
-              style: TextStyle(
-                color: Asset.colorPrimaryDark,
-                fontWeight: FontWeight.bold,
-                fontSize: 18,
-              ),
-            ),
-            alignment: Alignment.topLeft,
-          ),
-          GridView.builder(
-            shrinkWrap: true,
-            physics: NeverScrollableScrollPhysics(),
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2,
-              mainAxisSpacing: 8.0,
-              crossAxisSpacing: 8.0,
-              childAspectRatio:
-                  1.7, // Sesuaikan dengan proporsi yang Anda inginkan
-            ),
-            itemCount: 6,
-            itemBuilder: (BuildContext context, int index) {
-              return Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(8),
-                  color: Colors.grey[300],
-                ),
-                child: Image(
-                  image: AssetImage(
-                      '../asset/images/menu${index + 1}.jpg'), // Misalnya, image1.jpg, image2.jpg, dst.
-                  fit: BoxFit.cover,
-                ),
-              );
-            },
           )
         ],
       ),
@@ -159,9 +167,16 @@ class IconButton extends StatelessWidget {
 
   IconButton(this.nameLabel, this.iconLabel, this.index);
 
-  // List<Map> _fragment = [
-  //   {'title': 'Data Mahasiswa', 'view': ListMahasiswa(),}
-  // ];
+  List<Map> _fragment = [
+    {
+      'title': 'Makanan',
+      'view': Makanan(),
+    },
+    {
+      'title': 'Minuman',
+      'view': Minuman(),
+    }
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -181,20 +196,20 @@ class IconButton extends StatelessWidget {
                 borderRadius: BorderRadius.all(
                   Radius.circular(40),
                 ),
-                // onTap: () {
-                //   Navigator.push(
-                //     context,
-                //     MaterialPageRoute(
-                //       builder: (context) => _fragment[index]['view'],
-                //     ),
-                //   );
-                // },
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => _fragment[index]['view'],
+                    ),
+                  );
+                },
                 child: Container(
 // margin: EdgeInsets.all(5),
                   height: 60,
                   width: 60,
                   decoration: BoxDecoration(
-                    color: Asset.colorPrimaryDark,
+                    color: Colors.brown,
                     borderRadius: BorderRadius.all(
                       Radius.circular(30),
                     ),
@@ -259,7 +274,7 @@ class BeritaTerkini extends StatelessWidget {
                 borderRadius: BorderRadius.all(Radius.circular(10)),
                 gradient: LinearGradient(
                   colors: [
-                    Asset.colorPrimaryDark,
+                    Colors.brown,
                     Colors.transparent,
                   ],
                   end: Alignment.topCenter,

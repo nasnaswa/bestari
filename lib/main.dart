@@ -1,4 +1,6 @@
 import 'package:bopat/config/asset.dart';
+import 'package:bopat/screen/admin/home_screen.dart';
+import 'package:bopat/screen/admin/dashboard_admin.dart';
 import 'package:bopat/screen/login.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

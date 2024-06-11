@@ -1,4 +1,5 @@
 import 'package:bopat/screen/admin/home_screen.dart';
+import 'package:bopat/screen/admin/dashboard_admin.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
@@ -41,10 +42,10 @@ class _LoginState extends State<Login> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    'Bestari',
+                    'Bestari Cafe',
                     style: TextStyle(
                       fontSize: 30,
-                      color: Colors.black,
+                      color: Colors.brown,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
@@ -56,103 +57,111 @@ class _LoginState extends State<Login> {
                 padding: EdgeInsets.all(20),
                 child: Column(
                   children: [
-                    TextFormField(
-                      validator: (value) =>
-                          value == '' ? 'Jangan Kosong' : null,
+                    // TextFormField(
+                    //   validator: (value) =>
+                    //       value == '' ? 'Jangan Kosong' : null,
+                    //   style: TextStyle(
+                    //     color: Asset.colorPrimaryDark,
+                    //   ),
+                    //   decoration: InputDecoration(
+                    //       hintText: 'Nama Pengguna',
+                    //       hintStyle: TextStyle(
+                    //         color: Asset.colorPrimaryDark,
+                    //       ),
+                    //       filled: true,
+                    //       border: OutlineInputBorder(
+                    //         borderRadius: BorderRadius.circular(10),
+                    //         borderSide: BorderSide(
+                    //           color: Asset.colorPrimaryDark,
+                    //           width: 1,
+                    //         ),
+                    //       ),
+                    //       focusedBorder: OutlineInputBorder(
+                    //         borderRadius: BorderRadius.circular(10),
+                    //         borderSide: BorderSide(
+                    //           color: Asset.colorPrimary,
+                    //           width: 2,
+                    //         ),
+                    //       ),
+                    //       enabledBorder: OutlineInputBorder(
+                    //         borderRadius: BorderRadius.circular(10),
+                    //         borderSide: BorderSide(
+                    //           color: Asset.colorPrimary,
+                    //           width: 1,
+                    //         ),
+                    //       ),
+                    //       prefixIcon: Icon(
+                    //         Icons.person_2,
+                    //         color: Asset.colorPrimaryDark,
+                    //       )),
+                    // ),
+                    // SizedBox(
+                    //   height: 15,
+                    // ),
+                    // TextFormField(
+                    //   validator: (value) =>
+                    //       value == '' ? 'Jangan Kosong' : null,
+                    //   style: TextStyle(
+                    //     color: Asset.colorPrimaryDark,
+                    //   ),
+                    //   obscureText: true,
+                    //   decoration: InputDecoration(
+                    //       hintText: 'Kata Sandi',
+                    //       hintStyle: TextStyle(
+                    //         color: Asset.colorPrimaryDark,
+                    //       ),
+                    //       filled: true,
+                    //       border: OutlineInputBorder(
+                    //         borderRadius: BorderRadius.circular(10),
+                    //         borderSide: BorderSide(
+                    //           color: Asset.colorPrimaryDark,
+                    //           width: 1,
+                    //         ),
+                    //       ),
+                    //       focusedBorder: OutlineInputBorder(
+                    //         borderRadius: BorderRadius.circular(10),
+                    //         borderSide: BorderSide(
+                    //           color: Asset.colorPrimary,
+                    //           width: 2,
+                    //         ),
+                    //       ),
+                    //       enabledBorder: OutlineInputBorder(
+                    //         borderRadius: BorderRadius.circular(10),
+                    //         borderSide: BorderSide(
+                    //           color: Asset.colorPrimary,
+                    //           width: 1,
+                    //         ),
+                    //       ),
+                    //       prefixIcon: Icon(
+                    //         Icons.keyboard_alt_sharp,
+                    //         color: Asset.colorPrimaryDark,
+                    //       )),
+                    // ),
+                    // SizedBox(
+                    //   height: 15,
+                    // ),
+                    Text(
+                      'Mau makan di sini?',
                       style: TextStyle(
-                        color: Asset.colorPrimaryDark,
+                        fontSize: 20,
+                        color: Colors.brown,
+                        fontWeight: FontWeight.bold,
                       ),
-                      decoration: InputDecoration(
-                          hintText: 'Nama Pengguna',
-                          hintStyle: TextStyle(
-                            color: Asset.colorPrimaryDark,
-                          ),
-                          filled: true,
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10),
-                            borderSide: BorderSide(
-                              color: Asset.colorPrimaryDark,
-                              width: 1,
-                            ),
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10),
-                            borderSide: BorderSide(
-                              color: Asset.colorPrimary,
-                              width: 2,
-                            ),
-                          ),
-                          enabledBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10),
-                            borderSide: BorderSide(
-                              color: Asset.colorPrimary,
-                              width: 1,
-                            ),
-                          ),
-                          prefixIcon: Icon(
-                            Icons.person_2,
-                            color: Asset.colorPrimaryDark,
-                          )),
-                    ),
-                    SizedBox(
-                      height: 15,
-                    ),
-                    TextFormField(
-                      validator: (value) =>
-                          value == '' ? 'Jangan Kosong' : null,
-                      style: TextStyle(
-                        color: Asset.colorPrimaryDark,
-                      ),
-                      obscureText: true,
-                      decoration: InputDecoration(
-                          hintText: 'Kata Sandi',
-                          hintStyle: TextStyle(
-                            color: Asset.colorPrimaryDark,
-                          ),
-                          filled: true,
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10),
-                            borderSide: BorderSide(
-                              color: Asset.colorPrimaryDark,
-                              width: 1,
-                            ),
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10),
-                            borderSide: BorderSide(
-                              color: Asset.colorPrimary,
-                              width: 2,
-                            ),
-                          ),
-                          enabledBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10),
-                            borderSide: BorderSide(
-                              color: Asset.colorPrimary,
-                              width: 1,
-                            ),
-                          ),
-                          prefixIcon: Icon(
-                            Icons.keyboard_alt_sharp,
-                            color: Asset.colorPrimaryDark,
-                          )),
-                    ),
-                    SizedBox(
-                      height: 15,
                     ),
                     Container(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
-                        color: Asset.colorAccent,
+                        color: Colors.brown,
                       ),
                       width: double.infinity,
                       child: InkWell(
                         onTap: () {
                           Navigator.push(
-                            context,
-                            MaterialPageRoute(
+                              context,
+                              MaterialPageRoute(
                                 builder: (context) =>
-                                    HomeScreen()), // Ganti HomeScreen dengan nama halaman homescreen Anda
-                          );
+                                    DashboardAdmin(), // Ganti HomeScreen dengan nama halaman homescreen Anda
+                              ));
                         },
                         borderRadius: BorderRadius.circular(10),
                         child: Padding(
@@ -161,7 +170,50 @@ class _LoginState extends State<Login> {
                             vertical: 12,
                           ),
                           child: Text(
-                            'MASUK',
+                            'Dine In',
+                            style: TextStyle(
+                              fontSize: 18,
+                              color: Colors.white,
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 15,
+                    ),
+                    Text(
+                      'Atau dibawa pulang?',
+                      style: TextStyle(
+                        fontSize: 20,
+                        color: Colors.brown,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: Colors.brown,
+                      ),
+                      width: double.infinity,
+                      child: InkWell(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) =>
+                                    DashboardAdmin(), // Ganti HomeScreen dengan nama halaman homescreen Anda
+                              ));
+                        },
+                        borderRadius: BorderRadius.circular(10),
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(
+                            horizontal: 30,
+                            vertical: 12,
+                          ),
+                          child: Text(
+                            'Take Away',
                             style: TextStyle(
                               fontSize: 18,
                               color: Colors.white,
